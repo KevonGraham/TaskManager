@@ -10,6 +10,4 @@ ReadMe
 - Planner should be able to create work shedule for longterm plans executable up to the completion of the plan. this vary by month but can be customizable.
 
 
-	//Database rules:
-	".read": "auth != null",
-    ".write": "auth != null"
+	
