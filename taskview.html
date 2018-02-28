@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+<head>
+  <title>Task View</title>
+
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+  
+  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+
+<!-- <div class="panel panel-default" id="panell" >
+
+<div class="panel-body" style="background-color:#039be5">
+<div class="container" >
+
+<header>
+
+
+<img width="250" src="./PG.jpg">
+
+KrestSurg
+
+
+
+<nav style="float:right">
+
+<p style="color: #ffffff;">Customer Service 887-345-0022</p>
+<br>
+<br>
+ 
+</nav>
+</div> -->
+</div>
+</div>
+</header>
+</div>
+<style>
+body 
+
+
+
+
+
+
+
+
+{
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#e0e0e0;
+     /*;*/
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #039be5;
+    /*#f1f1f1;*/
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<!-- #4CAF50 -->
+<body style="background-color:linear-gradient(grey,white)">
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCVO0s0A4f6YQ-3OMZ-cjE7o5HTJH0LkAA",
+    authDomain: "task-manager-f7b54.firebaseapp.com",
+    databaseURL: "https://task-manager-f7b54.firebaseio.com",
+    projectId: "task-manager-f7b54",
+    storageBucket: "task-manager-f7b54.appspot.com",
+    messagingSenderId: "898264718002"
+  };
+  firebase.initializeApp(config);
+
+</script>
+
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  
+
+
+
+
+  <nav class="navbar navbar-inverse" style="background-color:#424242">
+  <div class="container-fluid">
+    <div class="navbar-header" >
+      <a class="navbar-brand" href="#" style="color: #ffffff; "></a>
+    </div>
+   
+    <div >
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Task</span>
+     
+      <ul class="nav navbar-nav navbar-right">
+      <!-- <li><img src="taskmanager.png" style="align-content:left;"></li> -->
+        <li><a href="#" style="color:white"><span class="glyphicon glyphicon-book">CalenderView</span></a></li>
+
+        <li ><a href="#" style="color:white"><span class="glyphicon glyphicon-file">ListView</span> </a></li>
+        
+        <li><a href="#" style="color:white"><span class="glyphicon glyphicon-user">TaskView</span></a></li>
+      </ul>
+    </div>
+  
+</nav>
+  
+  
+
+
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <i class="material-icons "></i>
+  <a href="#" class="active">Home</a>
+  <a href="#">Task 1</a>
+  <a href="#">Task 2</a>
+  <a href="#">Task 3</a>
+  <a href="#">Task 4</a>
+</div>
+
+  <br>
+  <br>
+
+
+  <TABLE style="width:100%">
+
+  <tr>
+
+
+      
+
+  <td>
+ 
+ </td>
+
+ <div class="row" ng-app="myApp" ng-controller="myCtrl">
+      <div class="col s6 m3">
+        <div  class="card-panel teal"  >
+          <span class="white-text"  ng-model="display">
+             {{myFunc()}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<td>
+ 
+ <button ion-fab mini><ion-icon name="add"></ion-icon>
+
+
+</td>
+
+</tr>
+</TABLE>
+
+<div class="container">
+ <ul class="nav nav-pills nav-justified" role="tablist">
+    <li><a href="#" style="background-color:#99CCFF;color:white">....Click To Load More Postings</a></li>
+   
+           
+  </ul>
+</div>
+
+
+<br>
+<br>
+
+
+
+<script type="text/javascript" src='./TaskValidation.js'></script>
+
+
+ <footer style="background-color:#90a4ae">
+
+
+<center>  <p style="color:white" class="flow-text">Terms and Condition</p></center>
+
+<br>
+<table width="100%">
+<tr >
+<td width="50%">
+<ul>
+<li style="color:white">client support</li>
+<li style="color:white">media center</li>
+<li style="color:white">career</li>
+<li style="color:white">Advertise with us</li>
+</ul>
+</td>
+
+
+<td style="float:right" width="50%">
+
+  
+<li style="color:blue" class="right" >Facebook</li>
+<li style="color:white">Twitter</li>
+<li style="color:white">google+</li>
+<li style="color:white">LinkedIN</li>
+
+
+  </td>
+  </tr>
+  </table>
+  </footer>
+
+
+  <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</body>
+
+
+</html>

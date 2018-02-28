@@ -1,0 +1,15 @@
+ReadMe
+
+- Develop system that emphasizes key words (such as date, time, special words rom user) that will make it hard to miss events.
+
+- Crrate capability for persons to share schedule with others. This can be done through sharing,
+	1) Their entire schedule acoross all planned activities across the categories
+	2) planned activities for specific categories
+	3) Specific task only from any category.
+
+- Planner should be able to create work shedule for longterm plans executable up to the completion of the plan. this vary by month but can be customizable.
+
+
+	//Database rules:
+	".read": "auth != null",
+    ".write": "auth != null"

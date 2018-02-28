@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+    </head>
+
+    <body>
+
+      <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCVO0s0A4f6YQ-3OMZ-cjE7o5HTJH0LkAA",
+    authDomain: "task-manager-f7b54.firebaseapp.com",
+    databaseURL: "https://task-manager-f7b54.firebaseio.com",
+    projectId: "task-manager-f7b54",
+    storageBucket: "task-manager-f7b54.appspot.com",
+    messagingSenderId: "898264718002"
+  };
+  firebase.initializeApp(config);
+
+</script>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+
+      
+
+      <div class="row">
+
+        <form class="col s12" name="TaskItem" id="TaskItem">
+            <div class="row">
+              <div class="input-field col s4">
+               <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Task Name" max="5">
+                <label for="Task"></label>
+              </div>
+            </div>
+
+
+       <div class="row">
+        <div class="input-field col s8">
+          <textarea id="taskDescription" name="taskDescription" class="materialize-textarea"></textarea>
+          <label for="textarea1">Task Description</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+      <div class="input-field col s4">
+        <select id="taskCategory" name="taskCategory">
+      <option value="" disabled selected>Category</option>
+      <option value="Personal">Personal</option>
+      <option value="Academics">Academics</option>
+      <option value="General">General Reminder</option>
+       <option value="Social">Social Event</option>
+      <option value="Urgent">urgent</option> 
+       </select>
+    <label>Category</label>
+      </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+        <label>Due Date</label>
+          <input type="text" class="datepicker" id="taskDueDate" name="taskDueDate">
+
+        </div>
+        <div class="col">
+        <label>Due Time</label>
+          <input type="text" class="timepicker" id="taskDueTime" name="taskDueTime">
+
+        </div>
+        <div class="col">
+        <label>Recurring Date</label>
+          <input type="text" class="datepicker" id="taskRecurringDate" name="taskRecurringDate">
+
+        </div>
+        <div class="col">
+        <label>Recurring Time</label>
+          <input type="text" class="timepicker" id="taskRecurringTime" name="taskRecurringTime">
+
+        </div>
+
+      </div>
+
+
+
+      <div class="row">
+         <div class="input-field col s8">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Notes</label>
+        </div>
+      </div>
+
+
+       <div class="row">
+              <div class="input-field col s4">
+               <input type="text" class="form-control" id="email" name="email" placeholder="Email Address">
+                
+              </div>
+            </div>
+
+            <div class="row" id="setPriority">
+            <label>Please set Priority</label>
+            <div class="row">
+              <p>
+                <input type="checkbox" id="highPriority" />
+                <label for="highPriority">High Priority</label>
+             </p>
+
+
+            </div>
+
+            <div class="row">
+              <p>
+                <input type="checkbox" id="mediumPriority" />
+                <label for="mediumPriority">Medium Priority</label>
+             </p>
+
+
+            </div>
+
+            <div class="row">
+              <p>
+                <input type="checkbox" id="lowPriority" />
+                <label for="lowPriority">Low priority</label>
+             </p>
+
+
+            </div>
+            </div>
+
+              <div class="row">
+                <p>
+                <input type="checkbox" id="subTask" />
+                <label for="subTask">Would you like to add sub task?</label>
+             </p>
+
+              </div>
+
+        </form>
+
+
+<button onclick="return taskValidity();">Create Task</button>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+<script type="text/javascript" src='./TaskValidation.js'></script>
+
+
+
+<script type="text/javascript">
+  
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
+
+
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+        
+
+$('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+        
+
+
+
+</script>
+
+<footer>
+<div class="page-footer" style="background-color:#039be5;">
+            <div class="container">
+            © 2016 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+                    
+<br>
+
+          </div>
+
+</footer>
+
+
+
+
+
+    </body>
+  </html>
